@@ -25,11 +25,7 @@ Línea de tiempo de los eventos de mayor impacto. Cada punto es un incidente y s
 
 ## Datos
 
-La fuente es [`public/coldron_seed.csv`](public/coldron_seed.csv), el dataset ColDron de incidentes documentados a partir de fuentes públicas (prensa, reportes del Ministerio de Defensa, ONU/OCHA y CICR). El script [`scripts/gen_incidents.py`](scripts/gen_incidents.py) lo transforma en [`lib/incidents.ts`](lib/incidents.ts), que consume la app:
-
-```bash
-py scripts/gen_incidents.py   # regenera lib/incidents.ts desde el CSV
-```
+La fuente es [`public/coldron_seed.csv`](public/coldron_seed.csv), el dataset ColDron de incidentes documentados a partir de fuentes públicas (prensa, reportes del Ministerio de Defensa, ONU/OCHA y CICR).
 
 ## Stack
 
@@ -46,20 +42,5 @@ pnpm dev        # http://localhost:3000
 ```
 
 Otros comandos: `pnpm build` (producción), `pnpm start` (servir build), `pnpm lint`.
-
-## Estructura
-
-```
-app/                 layout, página y estilos globales
-components/
-  Header.tsx         navegación superior
-  Map.tsx            mapa MapLibre + panel de estadísticas
-  Stats.tsx          gráficos de barras y dona
-  Timeline.tsx       línea de tiempo de impacto
-  ui/                componentes shadcn (card, chart, tooltip)
-lib/incidents.ts     datos generados desde el CSV
-public/              CSV, geojson de Colombia y assets
-scripts/             generador de datos (Python)
-```
 
 **Autores:** Leonardo Párraga · Angie Giraldo · Víctor Gelves — AI Safety Colombia (AISCOL), con Apart Research.
