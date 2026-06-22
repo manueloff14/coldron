@@ -11,7 +11,7 @@ Visualización web de los ataques con drones documentados en Colombia. Es la car
 La página tiene tres secciones, navegables desde el header (con scroll-snap a pantalla completa):
 
 ### 🗺️ Mapa
-Mapa oscuro de Colombia con los 39 incidentes georreferenciados. El tamaño de cada punto refleja la intensidad (muertos·2 + heridos) y el panel lateral resume totales (eventos, muertos, heridos) y el ranking de intensidad por departamento. Soporta zoom y desplazamiento con gestos del ratón.
+El mapa oscuro de Colombia con los 39 incidentes georreferenciados. El tamaño de cada punto refleja la intensidad (muertos·2 + heridos) y el panel lateral resume totales (eventos, muertos, heridos) y el ranking de intensidad por departamento. Soporta zoom y desplazamiento con gestos del ratón.
 
 ### 📊 Detalle
 Estadísticas agregadas del dataset: **eventos por mes** desde enero 2024 (gráfico de barras) y **distribución por tipo de objetivo** (civil, militar, infraestructura, mixto, N/D) en una dona.
