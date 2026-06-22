@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aisafetycolombia.org/schemas/wabom-0.1.json",
+  "title": "WABOM — Weapon-Autonomy Bill of Materials",
+  "description": "Manifiesto legible por maquina que declara las propiedades de autonomia y control humano de un sistema de armas, para su clasificacion por niveles de riesgo (HCRT).",
+  "type": "object",
+  "required": ["manifest_version", "system_name", "targeting_autonomy", "human_in_loop", "distinction_capability"],
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": { "type": "string", "const": "0.1" },
+    "system_name": { "type": "string", "description": "Nombre o designacion del sistema." },
+    "operator_class": {
+      "enum": ["state_armed_forces", "non_state_armed_group", "unknown"],
+      "description": "Quien opera el sistema."
+    },
+    "operational_role": {
+      "enum": ["offensive", "defensive_point", "counter_uas", "isr_only", "mixed"],
+      "description": "Rol operacional (relevante para la matriz tarea x efector x entorno)."
+    },
+    "targeting_autonomy": {
+      "enum": ["remote_operated", "semi_autonomous", "autonomous"],
+      "description": "Quien SELECCIONA el blanco: humano remoto / el sistema sugiere-rastrea / el sistema decide."
+    },
+    "human_in_loop": {
+      "enum": ["full", "partial", "none"],
+      "description": "Grado de control humano sobre la decision de ATACAR."
+    },
+    "distinction_capability": {
+      "enum": ["none", "limited", "robust"],
+      "description": "Capacidad del sistema de distinguir civil de combatiente (principio de distincion del DIH)."
+    },
+    "effector_type": {
+      "enum": ["non_kinetic", "kinetic", "dual"],
+      "description": "Efecto: no cinetico (inhibicion/jamming) vs cinetico (interceptor/explosivo)."
+    },
+    "engagement_environment_constraint": {
+      "enum": ["none", "geofenced_unpopulated", "populated_area_restricted"],
+      "description": "Restriccion geografica del enganche autonomo."
+    },
+    "human_override": {
+      "type": "boolean",
+      "description": "Puede un humano abortar un enganche en curso?"
+    },
+    "decision_logging": {
+      "type": "boolean",
+      "description": "Registra el sistema cada recomendacion/decision (trazabilidad para la brecha de responsabilidad)?"
+    },
+    "article36_review": {
+      "enum": ["completed", "in_progress", "not_done", "unknown"],
+      "description": "Estado de la revision juridica de armas del Articulo 36 del Protocolo Adicional I."
+    }
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "manifest_version": "0.1",
+    "system_name": "Dron comercial FPV + granada (grupo ilegal)",
+    "operator_class": "non_state_armed_group",
+    "operational_role": "offensive",
+    "targeting_autonomy": "remote_operated",
+    "human_in_loop": "full",
+    "distinction_capability": "none",
+    "effector_type": "kinetic",
+    "engagement_environment_constraint": "none",
+    "human_override": true,
+    "decision_logging": false,
+    "article36_review": "not_done"
+  },
+  {
+    "manifest_version": "0.1",
+    "system_name": "Municion merodeadora (loitering munition)",
+    "operator_class": "state_armed_forces",
+    "operational_role": "offensive",
+    "targeting_autonomy": "semi_autonomous",
+    "human_in_loop": "partial",
+    "distinction_capability": "limited",
+    "effector_type": "kinetic",
+    "engagement_environment_constraint": "none",
+    "human_override": true,
+    "decision_logging": true,
+    "article36_review": "in_progress"
+  },
+  {
+    "manifest_version": "0.1",
+    "system_name": "Interceptor antidron en modo automatico (sin salvaguardas)",
+    "operator_class": "state_armed_forces",
+    "operational_role": "counter_uas",
+    "targeting_autonomy": "autonomous",
+    "human_in_loop": "none",
+    "distinction_capability": "none",
+    "effector_type": "kinetic",
+    "engagement_environment_constraint": "none",
+    "human_override": false,
+    "decision_logging": false,
+    "article36_review": "unknown"
+  },
+  {
+    "manifest_version": "0.1",
+    "system_name": "Mismo antidron CON salvaguardas (efector no cinetico + override + trazabilidad)",
+    "operator_class": "state_armed_forces",
+    "operational_role": "counter_uas",
+    "targeting_autonomy": "autonomous",
+    "human_in_loop": "none",
+    "distinction_capability": "none",
+    "effector_type": "non_kinetic",
+    "engagement_environment_constraint": "geofenced_unpopulated",
+    "human_override": true,
+    "decision_logging": true,
+    "article36_review": "completed"
+  }
+]
