@@ -1,4 +1,4 @@
-# ColDron · Explorador interactivo
+# Observatorio de datos ColDron de los ataques de drones en Colombia.
 
 Visualización web de los ataques con drones documentados en Colombia. Es la cara pública del dataset abierto **ColDron** y del proyecto de gobernanza de armas autónomas de **AI Safety Colombia (AISCOL)**, en colaboración con Apart Research.
 
