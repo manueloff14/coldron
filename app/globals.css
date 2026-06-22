@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-questrial);
+  --font-mono: var(--font-questrial);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-questrial), Arial, Helvetica, sans-serif;
+}
+
+/* Ocultar la barra de scroll (sensacion full-page) sin perder el scroll */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Controles de MapLibre en tema oscuro */
+.map-dark .maplibregl-ctrl-group {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: none;
+}
+.map-dark .maplibregl-ctrl-group button + button {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.map-dark .maplibregl-ctrl button .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+.map-dark .maplibregl-ctrl button:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+.map-dark .maplibregl-ctrl-attrib {
+  background: rgba(28, 28, 31, 0.8);
+  color: #a1a1aa;
+}
+.map-dark .maplibregl-ctrl-attrib a {
+  color: #d4d4d8;
+}
+.map-dark .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}
+
+/* Popups de incidentes (tema oscuro) */
+.map-dark .maplibregl-popup-content {
+  background: #000000;
+  color: #ffffff;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: none;
+  max-width: 280px;
+}
+.map-dark .maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.map-dark .maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.map-dark .maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+  border-bottom-color: #000000;
+}
+.map-dark .maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.map-dark .maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.map-dark .maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+  border-top-color: #000000;
+}
+.map-dark .maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: #000000;
+}
+.map-dark .maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: #000000;
+}
+.map-dark .maplibregl-popup-close-button {
+  color: #71717a;
+  font-size: 18px;
+  padding: 2px 6px;
+}
+.inc-popup-title { font-size: 15px; font-weight: 600; color: #fff; }
+.inc-popup-sub { font-size: 12px; color: #f87171; margin-bottom: 8px; }
+.inc-popup-row {
+  display: flex; justify-content: space-between; gap: 12px;
+  font-size: 12px; color: #a1a1aa; padding: 2px 0;
+}
+.inc-popup-row b { color: #e4e4e7; font-weight: 500; text-align: right; }
+.inc-popup-stats { display: flex; gap: 10px; margin-top: 8px; }
+.inc-fat {
+  background: rgba(239, 68, 68, 0.2); color: #fca5a5;
+  border-radius: 9999px; padding: 3px 10px; font-size: 11px; font-weight: 600;
+}
+.inc-inj {
+  background: rgba(239, 68, 68, 0.12); color: #f87171;
+  border-radius: 9999px; padding: 3px 10px; font-size: 11px; font-weight: 600;
+}
+.inc-popup-notes {
+  margin-top: 10px; padding-top: 10px; font-size: 11px; line-height: 1.4;
+  color: #a1a1aa; border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
