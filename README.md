@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ColDron · Explorador interactivo
 
-## Getting Started
+Visualización web de los ataques con drones documentados en Colombia. Es la cara pública del dataset abierto **ColDron** y del proyecto de gobernanza de armas autónomas de **AI Safety Colombia (AISCOL)**, en colaboración con Apart Research.
 
-First, run the development server:
+> En Colombia los grupos armados ilegales ya atacan con drones comerciales modificados y han herido y matado a civiles. ColDron documenta ese daño y prueba empíricamente que **el 100% de los ataques son operados por un humano, sin autonomía**. Esa es la ventana de prevención: fijar las reglas de control humano antes de que la autonomía llegue al conflicto.
+
+![Mapa de incidentes](img_web/hero.png)
+
+## Qué muestra
+
+La página tiene tres secciones, navegables desde el header (con scroll-snap a pantalla completa):
+
+### 🗺️ Mapa
+Mapa oscuro de Colombia con los 39 incidentes georreferenciados. El tamaño de cada punto refleja la intensidad (muertos·2 + heridos) y el panel lateral resume totales (eventos, muertos, heridos) y el ranking de intensidad por departamento. Soporta zoom y desplazamiento con gestos del ratón.
+
+### 📊 Detalle
+Estadísticas agregadas del dataset: **eventos por mes** desde enero 2024 (gráfico de barras) y **distribución por tipo de objetivo** (civil, militar, infraestructura, mixto, N/D) en una dona.
+
+![Sección Detalle](img_web/detalle.png)
+
+### 📈 Eventos
+Línea de tiempo de los eventos de mayor impacto. Cada punto es un incidente y su tamaño refleja el número de víctimas; al pasar el cursor se ve el detalle (lugar, fecha, perpetrador, objetivo, muertos y heridos).
+
+![Línea de tiempo de eventos](img_web/eventos.png)
+
+## Datos
+
+La fuente es [`public/coldron_seed.csv`](public/coldron_seed.csv), el dataset ColDron de incidentes documentados a partir de fuentes públicas (prensa, reportes del Ministerio de Defensa, ONU/OCHA y CICR). El script [`scripts/gen_incidents.py`](scripts/gen_incidents.py) lo transforma en [`lib/incidents.ts`](lib/incidents.ts), que consume la app:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+py scripts/gen_incidents.py   # regenera lib/incidents.ts desde el CSV
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 16** (App Router) · **React 19** · **TypeScript**
+- **Tailwind CSS v4** + componentes **shadcn/ui** (radix-ui)
+- **MapLibre GL** para el mapa
+- **Recharts** para los gráficos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Desarrollo
 
-## Learn More
+```bash
+pnpm install
+pnpm dev        # http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+Otros comandos: `pnpm build` (producción), `pnpm start` (servir build), `pnpm lint`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estructura
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/                 layout, página y estilos globales
+components/
+  Header.tsx         navegación superior
+  Map.tsx            mapa MapLibre + panel de estadísticas
+  Stats.tsx          gráficos de barras y dona
+  Timeline.tsx       línea de tiempo de impacto
+  ui/                componentes shadcn (card, chart, tooltip)
+lib/incidents.ts     datos generados desde el CSV
+public/              CSV, geojson de Colombia y assets
+scripts/             generador de datos (Python)
+```
 
-## Deploy on Vercel
+## Contexto del proyecto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este explorador acompaña al informe de investigación de ColDron, que además aporta **LIMAA/NRCH** (un esquema legible por máquina del control humano de un arma, con su nivel de riesgo) y un **protocolo de control humano significativo** de ocho cláusulas para las operaciones militares colombianas, anclado en el DIH, la revisión del Artículo 36 y el Comunicado de Belén. Más en [aisafetycolombia.org](https://aisafetycolombia.org).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Autores:** Leonardo Párraga · Angie Giraldo · Víctor Gelves — AI Safety Colombia (AISCOL), con Apart Research.
