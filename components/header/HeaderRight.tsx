@@ -2,7 +2,7 @@ export default function HeaderRight() {
   return (
     <div className="pointer-events-auto flex basis-1/3 items-center justify-end gap-2">
       <a
-        href="/paper.pdf"
+        href="/ColDron_submission.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="flex cursor-pointer items-center gap-2 rounded-full bg-red-500 px-4 py-1.5 text-sm font-medium text-white shadow-none transition-colors hover:bg-red-600"
