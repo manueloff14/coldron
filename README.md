@@ -62,8 +62,4 @@ public/              CSV, geojson de Colombia y assets
 scripts/             generador de datos (Python)
 ```
 
-## Contexto del proyecto
-
-Este explorador acompaña al informe de investigación de ColDron, que además aporta **LIMAA/NRCH** (un esquema legible por máquina del control humano de un arma, con su nivel de riesgo) y un **protocolo de control humano significativo** de ocho cláusulas para las operaciones militares colombianas, anclado en el DIH, la revisión del Artículo 36 y el Comunicado de Belén. Más en [aisafetycolombia.org](https://aisafetycolombia.org).
-
 **Autores:** Leonardo Párraga · Angie Giraldo · Víctor Gelves — AI Safety Colombia (AISCOL), con Apart Research.
